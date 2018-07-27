@@ -1,0 +1,149 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+// font-family
+
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #c4c3cc;
+$subColor: #8d8ab2;
+$keyColor: #ccffc4;
+$fontColor: #4c4c4c;
+
+/* Base
+--------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family: $baseFontFamily;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  background-color: lighten($baseColor,20%);
+}
+
+a{
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 5%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+/* Font
+--------------------------------------------------------------*/
+.abel{
+  font-family: 'Abel' sans-serif;
+}
+.uppercase{
+  text-transform: uppercase;
+}
+
+/* Layout
+--------------------------------------------------------------*/
+.block-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Align
+--------------------------------------------------------------*/
+.text-center{
+  text-align: center;  
+}
+
+/* top-wrapper
+--------------------------------------------------------------*/
+
+.top-wrapper{
+    background-image: url("../images/sky37.jpg");
+    height: 500px;
+    width: 100%;
+    @include background-size(cover);
+    background-position: center center;
+}
+
+.title{
+  font-size: 3.5rem;
+  line-height: normal;
+  margin: 50px auto;
+  color: $fontColor;
+}
+
+#contents{
+  width: 95%;
+  margin: 0 auto;
+  max-width: 900px;
+  margin-bottom: 60px;
+  .container{
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(row);
+  }
+  h3{
+    color: $fontColor;
+    margin-bottom: 15px;
+  }
+  .content-box {
+    @include flex(1);
+    margin: 10px 15px;
+    padding: 20px;
+    background-color: $subColor;
+    @include border-radius(10%);
+    @include box-sizing(border-box);
+  }
+  .box-title{
+    background-color: lighten($baseColor,20%);
+    padding: 10px 0;
+    @include border-radius(4px);
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  p{
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+
+.btn{
+  width: 30%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px 50px;
+  background-color: lighten($keyColor,50%);
+  @include border-radius(4px);
+}
+
+footer{
+  padding: 50px 0;
+  background-color: $baseColor;
+}
+.footer-box{
+  h3{
+    background-color: $subColor;
+    @extend .btn;
+    @include border-radius(0px);
+    padding: 10px 50px;
+  }
+  a{
+    color: $fontColor;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+
+/* responsive
+--------------------------------------------------------------*/
+@media (max-width: 769px){
+  .top-wrapper{
+    height: 250px;
+  }
+  #contents{
+    width: 80%;
+    max-width: 400px;
+    .container{
+      @include flex-direction(column);
+    }
+  }
+}
